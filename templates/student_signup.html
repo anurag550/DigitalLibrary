@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Signup</title>
+</head>
+<body>
+<h2 align="center">Enter Student Registration Detailss</h2>
+<form method="post">
+    {% csrf_token %}
+      <h3 style="color:red" align="center">{{data}}</h3>
+    <table align="center">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="txtname"></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="txtpswd"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="txtmail"></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="number" name="txtphone"></td>
+        </tr>
+        <tr>
+            <td>Semester</td>
+            <td><input type="number" name="txtsem"></td>
+        </tr>
+        <tr>
+            <td>Course</td>
+            <td>
+                <select name="ddlcourse">
+                    {% for i in Course_Data %}
+                    <option>{{ i.Course_Name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+    </tr>
+
+    <tr>
+    <td><input type="submit" value="register"></td>
+   </tr>
+    </table>
+</form>
+</body>
+</html>

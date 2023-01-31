@@ -1,0 +1,90 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<style>
+
+#div1
+{
+  margin-top: 3%;
+  margin-left: 60px;
+  width: 50%;
+  float: left;
+}
+
+#div2
+{
+  margin-top: 3%;
+  width: 30%;
+  float: right;
+}
+
+</style>
+<h2 align="center"><u>Assign Book</u></h2>
+<div id="div1">
+    <form action="readsemester" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Student Semester : </td>
+                <td><input type="text" name="txtsem"></td>
+            </tr>
+            <tr>
+                <td>Student Course : </td>
+                <td>
+                    <select name="ddlcourse">
+                        {% for i in data %}
+                            <option>{{i.Course_Name}}</option>
+                        {% endfor %}
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" name="btnSubmit" value="SUBMIT"></td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+<div id="div2">
+<form action="readassignbook" method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>Student Name : </td>
+            <td>
+                <select name="ddlSname">
+                    {% for i in Students %}
+                    <option>{{ i.user }}</option>
+                    {% endfor %}
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Book Name : </td>
+            <td>
+                <select name="ddlSbook">
+                    {% for i in Books %}
+                        <option>{{i.Book_Name}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Start Date : </td>
+            <td><input type="date" name="startDate"></td>
+        </tr>
+        <tr>
+            <td>End Date: </td>
+            <td><input type="date" name="endDate"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="btnSubmit" value="SUBMIT"></td>
+        </tr>
+    </table>
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin_Signup</title>
+</head>
+<body>
+<h2 align="center">Enter Admin Sign-Up Credentials</h2>
+<form method="post">
+  {% csrf_token %}
+<table align="center">
+  <tr>
+    <td>UserName</td>
+    <td><input type="text" name="txtuser"></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><input type="email" name="txtmail"></td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td><input type="password" name="txtpswd"> </td>
+  </tr>
+  <tr>
+    <td><input type="submit" value="register"></td>
+  </tr>
+</table>
+  </form>
+</body>
+</html>

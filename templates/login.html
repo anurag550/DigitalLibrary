@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h2  align="center">Enter Login Credentials</h2>
+<form method="post">
+  {% csrf_token %}
+  <h3 style="color:red" align="center">{{data}}</h3>
+<table align="center" cellspacing="20px">
+  <tr>
+    <td>UserName</td>
+    <td><input type="text" name="txtuser"></td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td><input type="password" name="txtpswd"> </td>
+  </tr>
+  <tr>
+    <td><input type="submit" name="btnsubmit" value="Login"></td>
+    <td><a href="{% url 'admin_signup' %}">Admin SignUp</a> &nbsp;&nbsp;
+      <a href="{% url 'student_reg' %}">Student SignUp</a></td>
+  </tr>
+</table>
+  </form>
+</body>
+</html>
